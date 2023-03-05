@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+    <title> My First Page</title>
+</head>
+    <body>
+        <form method="post" action="/">
+            {% if p_list %}
+                {% for p_name, p_city in p_list %}
+                    {% if p_city == city %}
+                        <p>{{p_name}} {{p_city}}</p>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <h2>Список участников не передан</h2>
+            {% endif %}
+        </form>
+    </body>
+</html>
